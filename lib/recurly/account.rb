@@ -54,8 +54,7 @@ module Recurly
     #   Account.list(:pastdue) #=> returns pastdue accounts
     #   Account.list(:free) #=> returns the free accounts
     #
-    def self.list(status = :all)
-      opts = {}
+    def self.list(status = :all, opts = {})
       if status && status != :all
         opts[:params] = {:show => SHOW_PARAMS[status] || status}
       end
