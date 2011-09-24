@@ -56,7 +56,7 @@ module Recurly
     #
     def self.list(status = :all, opts = {})
       if status && status != :all
-        opts[:params] = {:show => SHOW_PARAMS[status] || status}
+        opts[:params].merge({:show => SHOW_PARAMS[status] || status})
       end
       find(:all, opts)
     end
